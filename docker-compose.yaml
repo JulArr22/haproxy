@@ -17,3 +17,11 @@ services:
     restart: unless-stopped
     volumes:
       - './haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg'
+
+networks:
+  bridge-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: '${NETWORK_SUBNET}'
